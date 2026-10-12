@@ -18,10 +18,16 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
           cache-dependency-path: requirements*.txt
-      - name: Install dependencies
-        run: pip install -r requirements-dev.txt
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-minilm-onnx-1110a24
+      - name: Install dependencies (llama.cpp is not needed: model outputs are replayed)
+        run: pip install -r requirements-dev.txt -r requirements-embedding.txt
       # No NLTK corpora are needed: only the Porter stemmer (pure Python) is used.
       - name: Run tests
         run: pytest
-      - name: Reproduce the evaluation (lightweight methods)
-        run: python -m botbuddy.evaluate --methods keyword tfidf hybrid
+      - name: Reproduce the FAQ-matching evaluation
+        run: python -m botbuddy.evaluate --methods keyword tfidf hybrid embedding
+      - name: Reproduce the document-answer evaluation (replayed model outputs)
+        run: python -m botbuddy.rag_eval

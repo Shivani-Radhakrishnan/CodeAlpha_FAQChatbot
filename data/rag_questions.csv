@@ -1,0 +1,144 @@
+split,kind,question,gold,facts
+dev,answerable,how long do I have to send something back,returns#return-window,30 days
+dev,answerable,can I return opened earbuds,returns#items-that-cannot-be-returned,no|cannot|can't|not
+dev,answerable,does it cost anything to return a jumper that doesn't fit,returns#return-shipping-costs,5.95
+dev,answerable,when will my refund arrive after you get my return,returns#refund-timing,5-7 business days|5 to 7 business days
+dev,answerable,the parcel came crushed and the vase is broken what do I do,returns#damaged-faulty-or-wrong-items,photo;7 days
+dev,answerable,how much is express shipping,shipping#shipping-fees,14.99
+dev,answerable,if I order at 4pm will it leave today,shipping#delivery-times,next business day
+dev,answerable,who pays import taxes on international orders,shipping#international-shipping,customer|you
+dev,answerable,my express order came a day late do I get anything,shipping#late-deliveries,refund
+dev,answerable,can I change the address after my order has shipped,shipping#changing-the-delivery-address,redirect|carrier|no longer|cannot|can't
+dev,answerable,how much does gift wrap cost,shipping#packaging,3.99
+dev,answerable,until when can I cancel my order,orders_payments#cancelling-an-order,12 hours
+dev,answerable,do you take american express,orders_payments#accepted-payment-methods,yes|american express
+dev,answerable,can I split a 150 dollar order into payments,orders_payments#paying-in-installments,4|four
+dev,answerable,is there a late fee if an installment fails,orders_payments#paying-in-installments,no late fee|no fee|there is no
+dev,answerable,can I use two promo codes on one order,orders_payments#promo-codes,one|no|cannot|can't
+dev,answerable,does the warranty cover a cracked screen from dropping my phone,warranty#what-the-warranty-does-not-cover,no|not|doesn't|does not
+dev,answerable,how quickly do you reply to a warranty claim,warranty#making-a-warranty-claim,2 business days|two business days
+dev,answerable,how many extra years does botbuddy care add,warranty#extended-protection,2|two
+dev,answerable,how long is the password reset link valid,account_privacy#passwords-and-sign-in,1 hour|one hour
+dev,answerable,do you sell my data to advertisers,account_privacy#how-we-use-your-data,no|not|don't|do not
+dev,answerable,how long until my data is gone after deleting my account,account_privacy#deleting-your-account,30 days
+dev,answerable,how many points do I need for 5 dollars off,rewards_discounts#botbuddy-rewards,100
+dev,answerable,how do I become a gold member,rewards_discounts#rewards-tiers,500
+dev,answerable,can I use my student discount with a promo code,rewards_discounts#student-discount,no|not|cannot|can't
+dev,answerable,do you price match amazon marketplace sellers,rewards_discounts#price-matching,no|not|doesn't|does not
+dev,answerable,can I turn my gift card into cash,rewards_discounts#gift-cards,no|not|cannot|can't
+dev,answerable,can I call you on the phone,support#phone-support,no|not|don't|do not
+dev,answerable,where is the company based,support#about-the-company,new york
+dev,answerable,can someone help me order if I am blind,support#accessibility,yes|chat agent|place it with you
+dev,answerable,do you have a store in chicago I can visit,support#about-the-company,no|online
+dev,unanswerable,what is the return policy for furniture over 200 pounds,,
+dev,unanswerable,can I pick up my order from your warehouse,,
+dev,unanswerable,do you have a store credit card with cashback,,
+dev,answerable,what is your phone number,support#phone-support,no|not|don't|do not
+dev,unanswerable,who is the ceo of the company,,
+dev,unanswerable,do you have a military discount,,
+dev,unanswerable,do you give out free samples,,
+dev,unanswerable,are your products made in the usa,,
+dev,unanswerable,do you offer a warranty on refurbished items,,
+dev,offtopic,what is the capital of france,,
+dev,offtopic,write me a poem about cats,,
+dev,offtopic,what's the weather tomorrow,,
+dev,offtopic,how do I fix a python import error,,
+dev,offtopic,who won the world cup in 2018,,
+test,answerable,what's the deadline for returning an unused item,returns#return-window,30 days
+test,answerable,do I need the receipt to return something,returns#return-window,receipt|order confirmation
+test,answerable,can I send back a personalised engraved bracelet,returns#items-that-cannot-be-returned,no|cannot|can't|not
+test,answerable,are final sale items returnable,returns#items-that-cannot-be-returned,no|cannot|can't|not
+test,answerable,is returning a faulty item free,returns#return-shipping-costs,free|yes
+test,answerable,how much do you deduct from my refund for a normal return,returns#return-shipping-costs,5.95
+test,answerable,do gold members pay for returns,returns#return-shipping-costs;rewards_discounts#rewards-tiers,free|no
+test,answerable,how long do you take to inspect a returned item,returns#refund-timing,2 business days|two business days
+test,answerable,if I paid with a gift card where does my refund go,returns#refund-timing,gift card
+test,answerable,do I get the original shipping fee back when I return something,returns#refund-timing,only|mistake|our mistake|no
+test,answerable,can I swap shoes for a bigger size,returns#exchanges,yes|exchange
+test,answerable,is it free to exchange for another colour,returns#exchanges,free|yes
+test,answerable,what if the new size costs more,returns#exchanges,difference
+test,answerable,do I have to send back a damaged item to get a replacement,returns#damaged-faulty-or-wrong-items,no|not|don't|do not|unless
+test,answerable,you sent me the wrong product,returns#damaged-faulty-or-wrong-items,correct item;return label
+test,answerable,how many days does normal delivery take,shipping#delivery-times,5-7 business days|5 to 7 business days
+test,answerable,how fast is express delivery,shipping#delivery-times,1-2 business days|1 to 2 business days
+test,answerable,what's the cutoff time for same day dispatch,shipping#delivery-times,2 pm|2pm
+test,answerable,is shipping free on a 60 dollar order,shipping#shipping-fees,free|yes
+test,answerable,what do you charge to ship a 20 dollar order,shipping#shipping-fees,4.99
+test,answerable,how long does shipping to germany take,shipping#international-shipping,7-14 business days|7 to 14 business days
+test,answerable,can you deliver to a po box in canada,shipping#international-shipping,no|cannot|can't|not
+test,answerable,when do I get a tracking number,shipping#tracking-your-order,ships|shipped|email
+test,answerable,my tracking link shows nothing yet,shipping#tracking-your-order,24 hours
+test,answerable,my standard order is two weeks late,shipping#late-deliveries,discount|compensation|contact support
+test,answerable,can I change my delivery address before the order ships,shipping#changing-the-delivery-address,yes|account settings
+test,answerable,is your packaging plastic free,shipping#packaging,recyclable|cardboard|paper
+test,answerable,does gift wrap come with a note,shipping#packaging,handwritten note|note|yes
+test,answerable,I ordered yesterday morning can I still cancel,orders_payments#cancelling-an-order,12 hours|no|cannot|can't
+test,answerable,can I cancel an order that has already been dispatched,orders_payments#cancelling-an-order,no|cannot|can't|return
+test,answerable,I want to add one more item to the order I just placed,orders_payments#changing-an-order,1 hour|one hour|contact support
+test,answerable,do you accept paypal,orders_payments#accepted-payment-methods,yes|paypal
+test,answerable,can I pay cash when the parcel arrives,orders_payments#accepted-payment-methods,no|not|don't|do not
+test,answerable,can I pay partly with a gift card and partly with my card,orders_payments#accepted-payment-methods,yes|gift card
+test,answerable,what's the minimum order for installments,orders_payments#paying-in-installments,100
+test,answerable,how often are installment payments taken,orders_payments#paying-in-installments,two weeks|2 weeks
+test,answerable,do you keep my full card number,orders_payments#payment-security,no|not|never|last four
+test,answerable,why did you cancel my order,orders_payments#why-an-order-is-cancelled-by-us,payment|stock|fraud
+test,answerable,where do I enter a promo code,orders_payments#promo-codes,checkout|payment screen
+test,answerable,can promo codes be used on gift cards,orders_payments#promo-codes,no|not|don't|do not
+test,answerable,how long is the warranty,warranty#what-the-warranty-covers,1 year|one year|1-year
+test,answerable,my headphones stopped charging after 6 months is that covered,warranty#what-the-warranty-covers,yes|covered|warranty
+test,answerable,does the warranty cover the battery getting weaker,warranty#what-the-warranty-does-not-cover,no|not|doesn't|does not
+test,answerable,how do I file a warranty claim,warranty#making-a-warranty-claim,report a problem
+test,answerable,who pays shipping for a warranty repair,warranty#making-a-warranty-claim,no cost|free|we
+test,answerable,how much does botbuddy care cost,warranty#extended-protection,10%|10 percent
+test,answerable,can I add botbuddy care a month after buying,warranty#extended-protection,no|not|must|with the product
+test,answerable,can I buy without making an account,account_privacy#creating-an-account,guest|yes
+test,answerable,how do I turn on two factor authentication,account_privacy#passwords-and-sign-in,security|two-step|authenticator
+test,answerable,do you keep my invoices after I delete my account,account_privacy#deleting-your-account,7 years|yes
+test,answerable,who do you share my information with,account_privacy#how-we-use-your-data,payment|carrier
+test,answerable,can I stop getting order emails,account_privacy#emails-and-cookies,no|always|cannot|can't
+test,answerable,how do I turn off advertising cookies,account_privacy#emails-and-cookies,cookie settings
+test,answerable,how many points do I get per dollar,rewards_discounts#botbuddy-rewards,1 point|one point
+test,answerable,do my reward points expire,rewards_discounts#botbuddy-rewards,12 months|yes
+test,answerable,what do gold members get,rewards_discounts#rewards-tiers,2 points|free express|free returns
+test,answerable,how much is the student discount,rewards_discounts#student-discount,10%|10 percent
+test,answerable,how often do I need to verify my student status,rewards_discounts#student-discount,once a year|every year|annually
+test,answerable,how long after buying can I ask for a price match,rewards_discounts#price-matching,14 days
+test,answerable,do gift cards expire,rewards_discounts#gift-cards,never|no|don't|do not
+test,answerable,what amounts do gift cards come in,rewards_discounts#gift-cards,10;500
+test,answerable,I lost my gift card,rewards_discounts#gift-cards,replace|purchase confirmation
+test,answerable,if I return something I bought on sale what refund do I get,rewards_discounts#current-offers,price you paid|sale price
+test,answerable,is support available at 3am,support#contacting-support,24/7|yes
+test,answerable,how quickly do you answer emails,support#contacting-support,12 hours
+test,answerable,how do I talk to a real person,support#contacting-support,human
+test,answerable,is there an android app,support#about-the-company,yes|android
+test,answerable,does the app work with a screen reader,support#accessibility,yes|screen reader
+test,unanswerable,do you price match your own past prices,,
+test,unanswerable,what time does the warehouse open,,
+test,unanswerable,do you offer bulk gift card discounts for companies,,
+test,unanswerable,do you sell furniture,,
+test,unanswerable,do you have a black friday sale every year,,
+test,unanswerable,how many employees do you have,,
+test,unanswerable,do you offer a senior citizen discount,,
+test,unanswerable,can I change the name on a gift card,,
+test,unanswerable,do you have a referral program,,
+test,unanswerable,can I get my order delivered by drone,,
+test,unanswerable,what is the warranty on gift cards,,
+test,unanswerable,do you recycle old electronics,,
+test,unanswerable,do you have a wedding registry,,
+test,unanswerable,which carrier do you use for deliveries,,
+test,unanswerable,can I get an invoice with my company tax number,,
+test,unanswerable,do you sell refurbished phones,,
+test,unanswerable,can I schedule a delivery time slot,,
+test,unanswerable,do you repair products bought somewhere else,,
+test,unanswerable,what is your returns address,,
+test,unanswerable,do you offer layaway,,
+test,offtopic,how tall is mount everest,,
+test,offtopic,translate hello into spanish,,
+test,offtopic,what is 17 times 23,,
+test,offtopic,recommend a good movie,,
+test,offtopic,who wrote hamlet,,
+test,offtopic,give me a recipe for pancakes,,
+test,offtopic,what's the score of the lakers game,,
+test,offtopic,explain quantum computing,,
+test,offtopic,how do I learn to drive,,
+test,offtopic,tell me a joke,,

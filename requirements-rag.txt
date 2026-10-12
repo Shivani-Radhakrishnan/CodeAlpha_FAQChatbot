@@ -1,0 +1,6 @@
+# Optional: answers from the policy documents with a local language model.
+# llama-cpp-python compiles llama.cpp on install (needs a C++ compiler and CMake); on Apple
+# silicon, CMAKE_ARGS="-DGGML_METAL=on" uses the GPU. The model (Qwen2.5-1.5B-Instruct,
+# 4-bit, about 1.1 GB) is downloaded on first use.
+-r requirements-embedding.txt
+llama-cpp-python==0.3.36

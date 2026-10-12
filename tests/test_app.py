@@ -67,3 +67,21 @@ def test_did_you_mean_button_asks_the_suggestion(app):
     _button(app, "How do I reset my password?").click().run()
     assert app.session_state.messages[-2]["content"] == "How do I reset my password?"
     assert "Forgot Password" in app.session_state.messages[-1]["content"]
+
+
+def test_document_answers_cite_their_sources(monkeypatch):
+    """With recorded model outputs (no LLM needed), a policy question gets a cited answer."""
+    pytest.importorskip("onnxruntime")
+    cache = Path(__file__).resolve().parent.parent / "data" / "rag_llm_cache.json"
+    monkeypatch.setenv("BOTBUDDY_LLM_REPLAY", str(cache))
+    at = AppTest.from_file(APP, default_timeout=120)
+    at.run()
+    at.session_state["use_docs"] = True
+    at.text_input[0].input("how much is express shipping")   # a dev question, so its output is recorded
+    _button(at, "Send").click()
+    at.run()
+    assert not at.exception
+    reply = at.session_state.messages[-1]
+    assert reply["status"] == "docs" and "14.99" in reply["content"]
+    assert any("Shipping fees" in s["title"] for s in reply["sources"])
+    assert any("Source 1" in e.label for e in at.expander)

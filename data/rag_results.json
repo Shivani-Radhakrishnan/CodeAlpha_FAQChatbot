@@ -1,0 +1,1094 @@
+{
+ "n": 98,
+ "min_relevance": 0.25,
+ "min_support": 0.5,
+ "systems": {
+  "FAQ matcher (existing)": {
+   "answerable correct": 0.47058823529411764,
+   "answerable refused": 0.1323529411764706,
+   "unanswerable declined": 0.15,
+   "offtopic declined": 0.9,
+   "answerable correct n": 68,
+   "answerable refused n": 68,
+   "unanswerable declined n": 20,
+   "offtopic declined n": 10,
+   "overall": 0.4489795918367347
+  },
+  "LLM, no documents": {
+   "answerable correct": 0.16176470588235295,
+   "answerable refused": 0.23529411764705882,
+   "unanswerable declined": 0.15,
+   "offtopic declined": 0.0,
+   "answerable correct n": 68,
+   "answerable refused n": 68,
+   "unanswerable declined n": 20,
+   "offtopic declined n": 10,
+   "overall": 0.14285714285714285
+  },
+  "RAG, no grounding check": {
+   "answerable correct": 0.8823529411764706,
+   "answerable refused": 0.014705882352941176,
+   "unanswerable declined": 0.6,
+   "offtopic declined": 1.0,
+   "answerable correct n": 68,
+   "answerable refused n": 68,
+   "unanswerable declined n": 20,
+   "offtopic declined n": 10,
+   "overall": 0.8367346938775511,
+   "citation correct": 0.8656716417910447,
+   "retrieval recall@3": 0.9852941176470589
+  },
+  "RAG with grounding check": {
+   "answerable correct": 0.8529411764705882,
+   "answerable refused": 0.029411764705882353,
+   "unanswerable declined": 0.65,
+   "offtopic declined": 1.0,
+   "answerable correct n": 68,
+   "answerable refused n": 68,
+   "unanswerable declined n": 20,
+   "offtopic declined n": 10,
+   "overall": 0.826530612244898,
+   "citation correct": 0.9393939393939394,
+   "retrieval recall@3": 0.9852941176470589
+  }
+ },
+ "examples": [
+  {
+   "question": "what's the deadline for returning an unused item",
+   "kind": "answerable",
+   "answer": "The return window for an unused item is 30 days from the date of delivery.",
+   "citations": [
+    "returns#return-window"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "do I need the receipt to return something",
+   "kind": "answerable",
+   "answer": "Yes, you need your receipt or order confirmation email to return an item.",
+   "citations": [
+    "returns#return-window"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "can I send back a personalised engraved bracelet",
+   "kind": "answerable",
+   "answer": "Yes, you can send back a personalised engraved bracelet if it arrives damaged or faulty within 7 days of delivery.",
+   "citations": [
+    "rewards_discounts#gift-cards"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": false
+  },
+  {
+   "question": "are final sale items returnable",
+   "kind": "answerable",
+   "answer": "Yes, final sale items are returnable within 30 days of delivery.",
+   "citations": [
+    "returns#return-window"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": false
+  },
+  {
+   "question": "is returning a faulty item free",
+   "kind": "answerable",
+   "answer": "Yes, returns of faulty, damaged or wrongly sent items are free.",
+   "citations": [
+    "returns#return-shipping-costs"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how much do you deduct from my refund for a normal return",
+   "kind": "answerable",
+   "answer": "For a normal return, a return shipping fee of $5.95 is taken from your refund.",
+   "citations": [
+    "returns#return-shipping-costs"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "do gold members pay for returns",
+   "kind": "answerable",
+   "answer": "Yes, Gold members do not pay for returns; they get free returns on every order.",
+   "citations": [
+    "returns#return-shipping-costs"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how long do you take to inspect a returned item",
+   "kind": "answerable",
+   "answer": "We inspect returned items within 2 business days of receiving them.",
+   "citations": [
+    "returns#refund-timing"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "if I paid with a gift card where does my refund go",
+   "kind": "answerable",
+   "answer": "Your refund will go back to the gift card.",
+   "citations": [
+    "returns#refund-timing"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "do I get the original shipping fee back when I return something",
+   "kind": "answerable",
+   "answer": "Yes, original shipping fees are refunded only when the return is because of our mistake.",
+   "citations": [
+    "returns#refund-timing"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "can I swap shoes for a bigger size",
+   "kind": "answerable",
+   "answer": "Yes, you can exchange an item for a different size or colour of the same product within 30 days.",
+   "citations": [
+    "returns#exchanges"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "is it free to exchange for another colour",
+   "kind": "answerable",
+   "answer": "Yes, exchanges are free and the new item ships as soon as we scan your return. If the new size or colour costs more, you pay the difference; if it costs less, we refund the difference.",
+   "citations": [
+    "returns#exchanges"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "what if the new size costs more",
+   "kind": "answerable",
+   "answer": "If the new size or colour costs more, you pay the difference.",
+   "citations": [
+    "returns#exchanges"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "do I have to send back a damaged item to get a replacement",
+   "kind": "answerable",
+   "answer": "Yes, if an item arrives damaged, you need to send a photo of the item and its packaging within 7 days of delivery. We will ship a replacement or give you a full refund, whichever you prefer, and you do not need to send the damaged item back unless we ask.",
+   "citations": [
+    "returns#damaged-faulty-or-wrong-items"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "you sent me the wrong product",
+   "kind": "answerable",
+   "answer": "Yes, if you received the wrong product, contact support with your order number and we will send the correct item along with a free return label.",
+   "citations": [
+    "returns#damaged-faulty-or-wrong-items"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how many days does normal delivery take",
+   "kind": "answerable",
+   "answer": "Standard shipping within the United States usually takes 5-7 business days after your order is dispatched. Express delivery takes 1-2 business days.",
+   "citations": [
+    "shipping#delivery-times"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how fast is express delivery",
+   "kind": "answerable",
+   "answer": "Express delivery takes 1-2 business days.",
+   "citations": [
+    "shipping#delivery-times"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "what's the cutoff time for same day dispatch",
+   "kind": "answerable",
+   "answer": "Orders placed before 2 pm Eastern Time on a business day are dispatched the same day; later orders are dispatched the next business day.",
+   "citations": [
+    "shipping#delivery-times"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "is shipping free on a 60 dollar order",
+   "kind": "answerable",
+   "answer": "Yes, shipping is free on orders over $50.",
+   "citations": [
+    "shipping#shipping-fees"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "what do you charge to ship a 20 dollar order",
+   "kind": "answerable",
+   "answer": "Express delivery costs $14.99 per order, whatever the order value.",
+   "citations": [
+    "shipping#shipping-fees"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how long does shipping to germany take",
+   "kind": "answerable",
+   "answer": "Shipping to Germany usually takes 7-14 business days.",
+   "citations": [
+    "shipping#international-shipping"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "can you deliver to a po box in canada",
+   "kind": "answerable",
+   "answer": "No, we cannot ship to P.O. boxes outside the United States.",
+   "citations": [
+    "shipping#international-shipping"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "when do I get a tracking number",
+   "kind": "answerable",
+   "answer": "You get a tracking number when your order ships.",
+   "citations": [
+    "shipping#tracking-your-order"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "my tracking link shows nothing yet",
+   "kind": "answerable",
+   "answer": "It seems that your tracking information has not yet appeared after dispatch.",
+   "citations": [
+    "shipping#tracking-your-order"
+   ],
+   "refused": false,
+   "reason": "partly grounded",
+   "correct": false
+  },
+  {
+   "question": "my standard order is two weeks late",
+   "kind": "answerable",
+   "answer": "Yes, if your standard order is two weeks late, you can contact support and they may offer a discount on your next order as compensation.",
+   "citations": [
+    "shipping#late-deliveries"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "can I change my delivery address before the order ships",
+   "kind": "answerable",
+   "answer": "Yes, you can change the delivery address from your account settings until the order is shipped.",
+   "citations": [
+    "shipping#changing-the-delivery-address"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "is your packaging plastic free",
+   "kind": "answerable",
+   "answer": "Yes, we ship in recyclable cardboard and paper packaging and avoid single-use plastic wherever we can.",
+   "citations": [
+    "shipping#packaging"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "does gift wrap come with a note",
+   "kind": "answerable",
+   "answer": "Yes, gift wrapping can be chosen at checkout for $3.99 per item and includes a handwritten note.",
+   "citations": [
+    "shipping#packaging"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "I ordered yesterday morning can I still cancel",
+   "kind": "answerable",
+   "answer": "Yes, you can cancel your order within 12 hours of placing it, as long as it has not been dispatched.",
+   "citations": [
+    "orders_payments#cancelling-an-order"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "can I cancel an order that has already been dispatched",
+   "kind": "answerable",
+   "answer": "No, once an order has been dispatched, it cannot be cancelled; you can only return it if it arrives.",
+   "citations": [
+    "orders_payments#cancelling-an-order"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "I want to add one more item to the order I just placed",
+   "kind": "answerable",
+   "answer": "You can change the items or quantities in an order within 1 hour of placing it by contacting support.",
+   "citations": [
+    "orders_payments#changing-an-order"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "do you accept paypal",
+   "kind": "answerable",
+   "answer": "Yes, we accept PayPal as one of the accepted payment methods.",
+   "citations": [
+    "orders_payments#accepted-payment-methods"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "can I pay cash when the parcel arrives",
+   "kind": "answerable",
+   "answer": "No, cash on delivery is not available; all orders are prepaid. You can pay part of the order with a gift card and the rest with another method.",
+   "citations": [
+    "orders_payments#accepted-payment-methods"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "can I pay partly with a gift card and partly with my card",
+   "kind": "answerable",
+   "answer": "Yes, you can pay part of an order with a gift card and the rest with another method.",
+   "citations": [
+    "orders_payments#accepted-payment-methods"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "what's the minimum order for installments",
+   "kind": "answerable",
+   "answer": "Orders over $100 can be split into 4 interest-free payments at checkout.",
+   "citations": [
+    "orders_payments#paying-in-installments"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how often are installment payments taken",
+   "kind": "answerable",
+   "answer": "Installment payments are taken every two weeks starting from the first payment.",
+   "citations": [
+    "orders_payments#paying-in-installments"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "do you keep my full card number",
+   "kind": "answerable",
+   "answer": "No, we only keep the last four digits of your card number to help you recognise the card.",
+   "citations": [
+    "orders_payments#payment-security"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "why did you cancel my order",
+   "kind": "answerable",
+   "answer": "The order was cancelled because the payment failed.",
+   "citations": [
+    "orders_payments#why-an-order-is-cancelled-by-us"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "where do I enter a promo code",
+   "kind": "answerable",
+   "answer": "You enter a promo code on the payment screen at checkout.",
+   "citations": [
+    "orders_payments#promo-codes"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "can promo codes be used on gift cards",
+   "kind": "answerable",
+   "answer": "No, promo codes cannot be used on gift cards.",
+   "citations": [
+    "orders_payments#promo-codes"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how long is the warranty",
+   "kind": "answerable",
+   "answer": "The warranty is 3 years.",
+   "citations": [
+    "warranty#extended-protection"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": false
+  },
+  {
+   "question": "my headphones stopped charging after 6 months is that covered",
+   "kind": "answerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "unsupported answer",
+   "correct": false
+  },
+  {
+   "question": "does the warranty cover the battery getting weaker",
+   "kind": "answerable",
+   "answer": "The warranty covers defects in materials and workmanship that appear with normal use, such as a device that stops charging or a zip that breaks. It does not cover normal wear and tear or cosmetic marks that do not affect how the product works.",
+   "citations": [
+    "warranty#what-the-warranty-covers",
+    "warranty#what-the-warranty-does-not-cover"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how do I file a warranty claim",
+   "kind": "answerable",
+   "answer": "To file a warranty claim, open your account, go to \"Report a problem,\" describe the fault, and add a photo or video. We reply within 2 business days. If approved, we repair or replace the product at no cost, including shipping; if not, we refund the price you paid.",
+   "citations": [
+    "warranty#making-a-warranty-claim"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "who pays shipping for a warranty repair",
+   "kind": "answerable",
+   "answer": "BotBuddy Rewards Gold members get free returns on every order.",
+   "citations": [
+    "returns#return-shipping-costs"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how much does botbuddy care cost",
+   "kind": "answerable",
+   "answer": "BotBuddy Care costs 10% of the product price.",
+   "citations": [
+    "warranty#extended-protection"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "can I add botbuddy care a month after buying",
+   "kind": "answerable",
+   "answer": "Yes, you can add BotBuddy Care a month after buying it.",
+   "citations": [
+    "warranty#extended-protection"
+   ],
+   "refused": false,
+   "reason": "partly grounded",
+   "correct": false
+  },
+  {
+   "question": "can I buy without making an account",
+   "kind": "answerable",
+   "answer": "You can buy without making an account, but you can't track orders, start returns, or earn rewards points.",
+   "citations": [
+    "account_privacy#creating-an-account"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": false
+  },
+  {
+   "question": "how do I turn on two factor authentication",
+   "kind": "answerable",
+   "answer": "To turn on two-step verification, go to Account Settings > Security.",
+   "citations": [
+    "account_privacy#passwords-and-sign-in"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "do you keep my invoices after I delete my account",
+   "kind": "answerable",
+   "answer": "Yes, your invoices are kept for 7 years because tax law requires it, but they are no longer linked to a profile you can sign in to.",
+   "citations": [
+    "account_privacy#deleting-your-account"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "who do you share my information with",
+   "kind": "answerable",
+   "answer": "We share your personal data with the services needed to deliver your order, such as payment providers and carriers.",
+   "citations": [
+    "account_privacy#how-we-use-your-data"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "can I stop getting order emails",
+   "kind": "answerable",
+   "answer": "Yes, you can stop receiving order emails by going to Cookie Settings.",
+   "citations": [
+    "account_privacy#emails-and-cookies"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": false
+  },
+  {
+   "question": "how do I turn off advertising cookies",
+   "kind": "answerable",
+   "answer": "You can turn off advertising cookies by going to Cookie Settings in your browser.",
+   "citations": [
+    "account_privacy#emails-and-cookies"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how many points do I get per dollar",
+   "kind": "answerable",
+   "answer": "You earn 1 point for every $1 you spend.",
+   "citations": [
+    "rewards_discounts#botbuddy-rewards"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "do my reward points expire",
+   "kind": "answerable",
+   "answer": "Yes, BotBuddy Rewards points expire if your account has no purchases for 12 months.",
+   "citations": [
+    "rewards_discounts#botbuddy-rewards"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "what do gold members get",
+   "kind": "answerable",
+   "answer": "Gold members earn 2 points per $1, get free express shipping on orders over $100, and get free returns on every order.",
+   "citations": [
+    "rewards_discounts#rewards-tiers"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how much is the student discount",
+   "kind": "answerable",
+   "answer": "The student discount is 10% off with a valid student ID, verified once a year through our student verification page.",
+   "citations": [
+    "rewards_discounts#student-discount"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how often do I need to verify my student status",
+   "kind": "answerable",
+   "answer": "You need to verify your student status once a year through our student verification page.",
+   "citations": [
+    "rewards_discounts#student-discount"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how long after buying can I ask for a price match",
+   "kind": "answerable",
+   "answer": "You can request a price match within 14 days of your purchase.",
+   "citations": [
+    "rewards_discounts#price-matching"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "do gift cards expire",
+   "kind": "answerable",
+   "answer": "Yes, gift cards expire after 1 year from the date of purchase.",
+   "citations": [
+    "rewards_discounts#gift-cards"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": false
+  },
+  {
+   "question": "what amounts do gift cards come in",
+   "kind": "answerable",
+   "answer": "Gift cards come in digital formats, with options ranging from $10 to $500.",
+   "citations": [
+    "rewards_discounts#gift-cards"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "I lost my gift card",
+   "kind": "answerable",
+   "answer": "Yes, if you lost your gift card, we can replace it when you send us the purchase confirmation.",
+   "citations": [
+    "rewards_discounts#gift-cards"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "if I return something I bought on sale what refund do I get",
+   "kind": "answerable",
+   "answer": "If you return something you bought on sale, you get the price you paid.",
+   "citations": [
+    "rewards_discounts#current-offers"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "is support available at 3am",
+   "kind": "answerable",
+   "answer": "Yes, support is available 24/7 by live chat on the website and in the app, and by email at support@example.com. Email replies usually arrive within 12 hours. You can ask the chat assistant to connect you to a human agent at any time by typing \"human\".",
+   "citations": [
+    "support#contacting-support"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "how quickly do you answer emails",
+   "kind": "answerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": false
+  },
+  {
+   "question": "how do I talk to a real person",
+   "kind": "answerable",
+   "answer": "You can talk to a real person by typing \"human\" in the chat window and asking the chat assistant to connect you to a human agent.",
+   "citations": [
+    "support#contacting-support"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "is there an android app",
+   "kind": "answerable",
+   "answer": "Yes, the app is available for iOS and Android.",
+   "citations": [
+    "support#about-the-company"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "does the app work with a screen reader",
+   "kind": "answerable",
+   "answer": "Yes, the app supports screen readers.",
+   "citations": [
+    "support#accessibility"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": true
+  },
+  {
+   "question": "do you price match your own past prices",
+   "kind": "unanswerable",
+   "answer": "Yes, if you find the same item cheaper at another major retailer within 14 days of your purchase, we will refund the difference. You need to submit a request with a link to the competitor's offer.",
+   "citations": [
+    "rewards_discounts#price-matching"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": false
+  },
+  {
+   "question": "what time does the warehouse open",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "unsupported answer",
+   "correct": true
+  },
+  {
+   "question": "do you offer bulk gift card discounts for companies",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "model declined",
+   "correct": true
+  },
+  {
+   "question": "do you sell furniture",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "do you have a black friday sale every year",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "model declined",
+   "correct": true
+  },
+  {
+   "question": "how many employees do you have",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "do you offer a senior citizen discount",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "model declined",
+   "correct": true
+  },
+  {
+   "question": "can I change the name on a gift card",
+   "kind": "unanswerable",
+   "answer": "Yes, you can change the name on a gift card if you send us the purchase confirmation.",
+   "citations": [
+    "rewards_discounts#gift-cards"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": false
+  },
+  {
+   "question": "do you have a referral program",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "model declined",
+   "correct": true
+  },
+  {
+   "question": "can I get my order delivered by drone",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "model declined",
+   "correct": true
+  },
+  {
+   "question": "what is the warranty on gift cards",
+   "kind": "unanswerable",
+   "answer": "The warranty on gift cards covers defects in materials and workmanship that appear with normal use, such as a device that stops charging or a zip that breaks.",
+   "citations": [
+    "rewards_discounts#gift-cards"
+   ],
+   "refused": false,
+   "reason": "partly grounded",
+   "correct": false
+  },
+  {
+   "question": "do you recycle old electronics",
+   "kind": "unanswerable",
+   "answer": "However, we offer BotBuddy Care, which extends the warranty by 2 more years and adds cover for one accidental-damage repair.",
+   "citations": [
+    "warranty#extended-protection"
+   ],
+   "refused": false,
+   "reason": "partly grounded",
+   "correct": false
+  },
+  {
+   "question": "do you have a wedding registry",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "which carrier do you use for deliveries",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "model declined",
+   "correct": true
+  },
+  {
+   "question": "can I get an invoice with my company tax number",
+   "kind": "unanswerable",
+   "answer": "Yes, you can get an invoice with your company tax number. We keep order and invoice records for 7 years because tax law requires it, but they are no longer linked to a profile you can sign in to.",
+   "citations": [
+    "account_privacy#deleting-your-account"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": false
+  },
+  {
+   "question": "do you sell refurbished phones",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "can I schedule a delivery time slot",
+   "kind": "unanswerable",
+   "answer": "You can change the delivery address from your account settings until the order is shipped. After dispatch, the address can no longer be changed, but you can ask the carrier to redirect the parcel using the tracking link.",
+   "citations": [
+    "shipping#changing-the-delivery-address"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": false
+  },
+  {
+   "question": "do you repair products bought somewhere else",
+   "kind": "unanswerable",
+   "answer": "Yes, if you buy a product from another store and it arrives faulty, you can make a warranty claim through BotBuddy. We will repair or replace the product at no cost, including shipping, if the claim is approved.",
+   "citations": [
+    "warranty#extended-protection",
+    "warranty#making-a-warranty-claim"
+   ],
+   "refused": false,
+   "reason": "grounded",
+   "correct": false
+  },
+  {
+   "question": "what is your returns address",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "model declined",
+   "correct": true
+  },
+  {
+   "question": "do you offer layaway",
+   "kind": "unanswerable",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "how tall is mount everest",
+   "kind": "offtopic",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "translate hello into spanish",
+   "kind": "offtopic",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "what is 17 times 23",
+   "kind": "offtopic",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "recommend a good movie",
+   "kind": "offtopic",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "who wrote hamlet",
+   "kind": "offtopic",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "give me a recipe for pancakes",
+   "kind": "offtopic",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "what's the score of the lakers game",
+   "kind": "offtopic",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "explain quantum computing",
+   "kind": "offtopic",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "how do I learn to drive",
+   "kind": "offtopic",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  },
+  {
+   "question": "tell me a joke",
+   "kind": "offtopic",
+   "answer": "I couldn't find that in our policies, so I don't want to guess. Type 'human' to ask our support team.",
+   "citations": [],
+   "refused": true,
+   "reason": "low relevance",
+   "correct": true
+  }
+ ],
+ "final_reasons": {
+  "grounded": 69,
+  "partly grounded": 4,
+  "unsupported answer": 2,
+  "low relevance": 16,
+  "model declined": 7
+ }
+}

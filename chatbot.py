@@ -7,7 +7,9 @@ from __future__ import annotations
 
 import html
 import logging
+import os
 import random
+from pathlib import Path
 
 import streamlit as st
 import streamlit.components.v1 as components
@@ -111,10 +113,36 @@ def get_matcher() -> FAQMatcher:
     return FAQMatcher.from_csv(config.FAQ_PATH, method=config.DEFAULT_METHOD)
 
 
+def docs_available() -> bool:
+    """Document answers need the embedding model and either llama.cpp or recorded outputs."""
+    if os.environ.get("BOTBUDDY_LLM_REPLAY"):
+        return True
+    try:
+        import llama_cpp  # noqa: F401
+        import onnxruntime  # noqa: F401
+    except ImportError:
+        return False
+    return True
+
+
+@st.cache_resource(show_spinner="Loading the policy documents and the local language model (first time: ~1 GB download)...")
+def get_doc_answerer():
+    """Retriever over data/policies plus the local LLM (or recorded outputs, for tests and offline demos)."""
+    from botbuddy.encoder import get_encoder
+    from botbuddy.llm import ReplayCache, get_model
+    from botbuddy.rag import DocumentAnswerer, Retriever, load_chunks
+
+    replay = os.environ.get("BOTBUDDY_LLM_REPLAY")
+    model = ReplayCache(Path(replay)) if replay else get_model()
+    return DocumentAnswerer(Retriever(load_chunks(), get_encoder()), model,
+                            min_relevance=config.RAG_MIN_RELEVANCE, min_support=config.RAG_MIN_SUPPORT)
+
+
 def init_state() -> None:
     st.session_state.setdefault("messages", [])
     st.session_state.setdefault("show_details", True)
     st.session_state.setdefault("confetti", False)
+    st.session_state.setdefault("use_docs", False)
 
 
 def ask(question: str) -> None:
@@ -122,8 +150,18 @@ def ask(question: str) -> None:
     question = question.strip()
     if not question:
         return
-    result: MatchResult = get_matcher().respond(question)
     st.session_state.messages.append({"role": "user", "content": question})
+    if st.session_state.use_docs and docs_available():
+        doc = get_doc_answerer().answer(question)
+        # Small talk and "human" aren't in the policies: those still go to the FAQ matcher.
+        if not (doc.refused and doc.reason == "low relevance"):
+            chunks = {h.chunk.id: h.chunk for h in doc.sources}
+            st.session_state.messages.append({
+                "role": "bot", "content": doc.text, "status": "docs", "refused": doc.refused,
+                "sources": [{"title": chunks[c].title, "text": chunks[c].text} for c in doc.citations if c in chunks],
+            })
+            return
+    result: MatchResult = get_matcher().respond(question)
     st.session_state.messages.append(
         {
             "role": "bot",
@@ -146,6 +184,16 @@ def render_message(index: int, message: dict) -> None:
         return
 
     meta = ""
+    if message.get("status") == "docs":
+        if st.session_state.show_details:
+            meta = ('<span class="meta">From our policy documents · every sentence checked against its source</span>'
+                    if not message.get("refused") else
+                    '<span class="meta">Not covered by our policy documents</span>')
+        st.markdown(f'<div class="chat-message bot-message">{text}{meta}</div>', unsafe_allow_html=True)
+        for i, source in enumerate(message.get("sources", []), 1):
+            with st.expander(f"Source {i}: {source['title']}"):
+                st.write(source["text"])
+        return
     if st.session_state.show_details and "status" in message:
         if message["status"] == "answer":
             meta = (
@@ -185,6 +233,13 @@ def render_sidebar(matcher: FAQMatcher) -> None:
         )
         st.divider()
         st.toggle("Show match details", key="show_details")
+        available = docs_available()
+        st.toggle("Answer from policy documents", key="use_docs", disabled=not available,
+                  help="Retrieves the relevant policy sections and has a local language model "
+                       "(Qwen2.5-1.5B) answer from them, with citations. Every sentence is checked "
+                       "against its source; unsupported answers are declined.")
+        if not available:
+            st.caption("Install requirements-rag.txt to enable document answers.")
         if st.button("🧹 Clear chat", use_container_width=True):
             st.session_state.messages = []
             st.rerun()

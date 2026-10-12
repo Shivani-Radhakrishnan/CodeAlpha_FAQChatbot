@@ -43,3 +43,10 @@ SUGGEST_ANSWER: str = "I'm not completely sure what you mean. Did you mean one o
 
 #: Sentence-embedding model for the optional ``embedding`` method.
 EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
+
+#: Document answers (botbuddy.rag): below this question-to-section similarity the bot
+#: declines without calling the language model; answer sentences must be at least this
+#: similar to a sentence of the section they cite. Both chosen on the dev split of
+#: data/rag_questions.csv (python -m botbuddy.rag_eval --tune).
+RAG_MIN_RELEVANCE: float = 0.25
+RAG_MIN_SUPPORT: float = 0.5
