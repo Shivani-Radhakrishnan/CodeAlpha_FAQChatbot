@@ -1,0 +1,5 @@
+# Optional: enables the sentence-embedding matcher (best accuracy, CPU is fine).
+# On Linux, add --extra-index-url https://download.pytorch.org/whl/cpu to avoid
+# downloading the much larger CUDA build of PyTorch.
+-r requirements.txt
+sentence-transformers==6.1.0

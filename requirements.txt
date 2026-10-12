@@ -1,4 +1,4 @@
-pandas
-scikit-learn
-nltk
-streamlit
+streamlit==1.65.0
+scikit-learn==1.7.2
+nltk==3.10.3
+numpy==2.2.6

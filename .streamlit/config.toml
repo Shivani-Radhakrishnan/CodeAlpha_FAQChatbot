@@ -1,0 +1,8 @@
+[server]
+# Streamlit's file watcher walks every imported module; with the optional
+# sentence-transformers/transformers stack installed this floods the log with
+# harmless torchvision import errors. Set to "auto" for live reload while editing.
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
