@@ -22,7 +22,7 @@ jobs:
         with:
           path: ~/.cache/huggingface
           key: hf-minilm-onnx-1110a24
-      - name: Install dependencies (llama.cpp is not needed: model outputs are replayed)
+      - name: "Install dependencies (llama.cpp is not needed: model outputs are replayed)"
         run: pip install -r requirements-dev.txt -r requirements-embedding.txt
       # No NLTK corpora are needed: only the Porter stemmer (pure Python) is used.
       - name: Run tests
