@@ -1,0 +1,197 @@
+question,expected,split
+how many days do I have to send something back,What is your return policy?|Can I return an item after use?,dev
+can I send back a product I don't want,What is your return policy?|Can I return an item after use?,test
+rules for returning stuff?,What is your return policy?|Can I return an item after use?,test
+"I forgot my password, what now",How do I reset my password?,dev
+"can't log in, need a new password",How do I reset my password?,test
+how to recover my login credentials,How do I reset my password?,test
+is support available around the clock,Do you have 24/7 customer support?|What are your customer care hours?,dev
+can I get help in the middle of the night,Do you have 24/7 customer support?|What are your customer care hours?,test
+is your help desk open all day every day,Do you have 24/7 customer support?|What are your customer care hours?,test
+where are you based,Where is your company located?,dev
+what city is your headquarters in,Where is your company located?,test
+where's your head office,Where is your company located?,test
+can I pay with paypal,What payment methods are accepted?,dev
+which cards do you take,What payment methods are accepted?,test
+what are the ways to pay,What payment methods are accepted?,test
+when will my package arrive after I order,How long does shipping take?,dev
+how many days for delivery,How long does shipping take?,test
+what's the usual delivery time,How long does shipping take?,test
+is there a tracking number for my parcel,Can I track my order?|Where's my order?|How do I check my order status?,dev
+how can I follow my shipment,Can I track my order?|Where's my order?|How do I check my order status?,test
+trak my packge,Can I track my order?|Where's my order?|How do I check my order status?,test
+do you deliver outside the US,Do you ship internationally?,dev
+can you send orders to India,Do you ship internationally?,test
+do you ship abroad,Do you ship internationally?,test
+what if my item breaks after a few months,Is there a warranty on products?,dev
+do your products come with a guarantee,Is there a warranty on products?,test
+how long is the warranty,Is there a warranty on products?,test
+what time does customer service open,What are your customer care hours?|Do you have 24/7 customer support?,dev
+when can I call customer care,What are your customer care hours?|Do you have 24/7 customer support?,test
+what are your support hours,What are your customer care hours?|Do you have 24/7 customer support?,test
+I want to cancel what I bought,Can I cancel my order?,dev
+how do I call off a purchase I just made,Can I cancel my order?,test
+is it too late to cancel,Can I cancel my order?,test
+how can I get in touch with your team,How do I contact support?|Can I speak to a human?,dev
+what's the best way to reach customer service,How do I contact support?|Can I speak to a human?,test
+contcat support,How do I contact support?|Can I speak to a human?,test
+is there a discount for college students,Do you offer student discounts?,dev
+"I'm a student, do I get a cheaper price",Do you offer student discounts?,test
+any deals for students,Do you offer student discounts?,test
+is your packaging recyclable,Are the products eco-friendly?,dev
+are your products sustainable,Are the products eco-friendly?,test
+how environmentally friendly are your goods,Are the products eco-friendly?,test
+"I moved, can I update the shipping address",How do I change my delivery address?,dev
+need to send my order to a different address,How do I change my delivery address?,test
+how to edit where my order gets delivered,How do I change my delivery address?,test
+can I pay when the package arrives,Is cash on delivery available?,dev
+do you accept COD,Is cash on delivery available?,test
+can I pay in cash at the door,Is cash on delivery available?,test
+where do I enter a coupon,How do I apply a promo code?,dev
+"my discount code, where does it go",How do I apply a promo code?,test
+how to use a voucher code at checkout,How do I apply a promo code?,test
+my package hasn't arrived and it's past the delivery date,What happens if my order is late?|Where's my order?,dev
+do I get compensated for a delayed delivery,What happens if my order is late?|Where's my order?,test
+"order is overdue, what now",What happens if my order is late?|Where's my order?,test
+can you wrap my order as a present,Do you offer gift wrapping?,dev
+is gift packaging an option,Do you offer gift wrapping?,test
+can I get it gift wrapped,Do you offer gift wrapping?,test
+can I return something I already used,Can I return an item after use?|What is your return policy?,dev
+"I opened and used the product, can I still send it back",Can I return an item after use?|What is your return policy?,test
+hii,Hi|Hello|Hey,dev
+hi there,Hi|Hello|Hey,test
+hello there,Hello|Hi|Hey,dev
+helo,Hello|Hi|Hey,test
+hey there,Hey|Hi|Hello,dev
+heyy,Hey|Hi|Hello,test
+morning!,Good morning,dev
+good mornin,Good morning,test
+afternoon,Good afternoon,dev
+good afternoon to you,Good afternoon,test
+evening,Good evening,dev
+good evening bot,Good evening,test
+thx,Thanks|Thank you,dev
+thanks a lot,Thanks|Thank you,test
+thank you so much,Thank you|Thanks,dev
+much appreciated,Thank you|Thanks,test
+goodbye,Bye|See you later,dev
+bye bye,Bye|See you later,test
+see ya,See you later|Bye,dev
+talk to you later,See you later|Bye,test
+what are you able to help with,What can you do?|How does this work?|Help,dev
+what are your capabilities,What can you do?|How does this work?|Help,test
+who am I talking to,Who are you?|What's your name?|Are you a bot?,dev
+tell me about yourself,Who are you?|What's your name?|Are you a bot?,test
+how do I use this chat,How does this work?|What can you do?,dev
+how am I supposed to use you,How does this work?|What can you do?,test
+am I chatting with a real person,Are you a bot?|Who are you?,dev
+are you a robot,Are you a bot?|Who are you?,test
+is this an AI,Are you a bot?|Who are you?,test
+what should I call you,What's your name?|Who are you?,dev
+do you have a name,What's your name?|Who are you?,test
+help me,Help|I need help|What can you do?,dev
+hlep,Help|I need help|What can you do?,test
+I need some assistance,I need help|Help,dev
+can you help me please,I need help|Help,test
+what kind of items do you have,What products do you sell?,dev
+what's in your catalog,What products do you sell?,test
+what do you sell,What products do you sell?,test
+is there an app for my phone,Do you have a mobile app?,dev
+can I download your app on android,Do you have a mobile app?,test
+iphone app?,Do you have a mobile app?,test
+how do I sign up,How do I create an account?,dev
+I want to register,How do I create an account?,test
+how to make a new account,How do I create an account?,test
+what's your best seller,What's your most popular product?,dev
+which item do people buy the most,What's your most popular product?,test
+I want to talk to a real person,Can I speak to a human?|human|How do I contact support?,dev
+connect me with an agent,Can I speak to a human?|human|How do I contact support?,test
+let me talk to someone from your staff,Can I speak to a human?|human|How do I contact support?,test
+human agent,human|Can I speak to a human?,dev
+real human please,human|Can I speak to a human?,test
+any new arrivals,What's new?,dev
+what did you launch recently,What's new?,test
+are there any sales going on,Any special offers?,dev
+do you have any deals right now,Any special offers?,test
+anything on sale this week,Any special offers?,test
+stop sending me newsletters,How do I unsubscribe from emails?,dev
+how do I opt out of marketing emails,How do I unsubscribe from emails?,test
+"too many emails, how to turn them off",How do I unsubscribe from emails?,test
+where is my package,Where's my order?|Can I track my order?|How do I check my order status?|What happens if my order is late?,dev
+my order still hasn't come,Where's my order?|Can I track my order?|How do I check my order status?|What happens if my order is late?,test
+"my order got cancelled, why",Why was my order canceled?,dev
+why did you cancel my purchase,Why was my order canceled?,test
+how long until I get my money back,What's your refund time?,dev
+when will my refund come through,What's your refund time?,test
+how quickly are refunds processed,What's your refund time?,test
+"I found it cheaper elsewhere, will you match it",Do you price match?,dev
+do you match competitor prices,Do you price match?,test
+what is the status of my order,How do I check my order status?|Can I track my order?|Where's my order?,dev
+how can I see if my order has shipped,How do I check my order status?|Can I track my order?|Where's my order?,test
+I want to modify my order,Can I change my order?,dev
+can I add an item to an order I already placed,Can I change my order?,test
+edit my order after placing it,Can I change my order?,test
+what do you do with my personal data,What's your privacy policy?,dev
+how do you protect my information,What's your privacy policy?,test
+privacy policy link,What's your privacy policy?,test
+is delivery free,Do you charge for shipping?,dev
+how much does postage cost,Do you charge for shipping?,test
+are there any shipping fees,Do you charge for shipping?,test
+can I get next day delivery,Do you offer express shipping?,dev
+"I need it fast, is there a quicker shipping option",Do you offer express shipping?,test
+can I swap this for a different size,Can I exchange an item?,dev
+I'd like to trade my shirt for another colour,Can I exchange an item?,test
+my product came broken,What if my item arrived damaged?,dev
+the box was crushed and the item is cracked,What if my item arrived damaged?,test
+you sent me the wrong product,I received the wrong item,dev
+this isn't what I ordered,I received the wrong item,test
+can I buy a voucher for a friend,Do you sell gift cards?,dev
+do you have gift certificates,Do you sell gift cards?,test
+is it safe to enter my card details,Is my payment information secure?,dev
+do you keep my credit card number,Is my payment information secure?,test
+can I split the payment,Can I pay in installments?,dev
+do you offer buy now pay later,Can I pay in installments?,test
+I want to close my account,How do I delete my account?,dev
+remove my profile and all my data,How do I delete my account?,test
+how do I know which size to pick,Do you have a size guide?,dev
+is there a measurement chart,Do you have a size guide?,test
+is there a shop I can visit in person,Do you have physical stores?,dev
+do you have a retail location near me,Do you have physical stores?,test
+do I earn points when I shop,Do you have a loyalty program?,dev
+is there a rewards scheme,Do you have a loyalty program?,test
+"my card expired, how do I add a new one",How do I update my payment method?,dev
+change the card on my account,How do I update my payment method?,test
+is there a wishlist,Can I save items for later?,dev
+how do I bookmark a product,Can I save items for later?,test
+"the thing I want is sold out, when will it be back",When will an out-of-stock item be available again?,dev
+restock date for an unavailable product,When will an out-of-stock item be available again?,test
+what's the weather like today,,dev
+can you write me a poem,,test
+who won the world cup,,test
+what is the capital of france,,dev
+how do I bake bread,,test
+recommend a good movie,,test
+what's 15 times 23,,dev
+tell me a joke,,test
+translate hello to spanish,,test
+how tall is mount everest,,dev
+what is machine learning,,test
+can you book me a flight,,test
+what's the stock price of apple,,dev
+how do I fix my car engine,,test
+who is the president,,test
+play some music,,dev
+what's the meaning of life,,test
+how do I learn python,,test
+is it going to rain tomorrow,,dev
+what time is it in tokyo,,test
+how many calories in a banana,,test
+set an alarm for 7am,,dev
+explain quantum physics,,test
+who wrote hamlet,,test
+how do I lose weight,,dev
+convert 10 miles to km,,test
+do dogs dream,,test
+how far is the moon,,dev
+what's a good name for a cat,,test
+how do I change a flat tire,,test
