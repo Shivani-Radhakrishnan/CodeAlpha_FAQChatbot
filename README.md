@@ -26,3 +26,7 @@ BotBuddy is an interactive FAQ chatbot built using **Python**, **Streamlit**, an
 - pandas
 
 
+
+## License
+
+[MIT](LICENSE)
