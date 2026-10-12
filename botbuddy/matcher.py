@@ -212,17 +212,15 @@ class EmbeddingScorer:
     still matches, while the question itself stays the primary signal.
     """
 
-    def __init__(
-        self, model_name: str = config.EMBEDDING_MODEL, answer_weight: float = 0.8
-    ) -> None:
+    def __init__(self, answer_weight: float = 0.8) -> None:
         self.answer_weight = answer_weight
         try:
-            from sentence_transformers import SentenceTransformer
+            from botbuddy.encoder import get_encoder
         except ImportError as exc:  # pragma: no cover - optional dependency
             raise ImportError(
                 "The 'embedding' method needs: pip install -r requirements-embedding.txt"
             ) from exc
-        self._model = SentenceTransformer(model_name, device="cpu")
+        self._model = get_encoder()
 
     def fit(self, faqs: Sequence[FAQ]) -> "EmbeddingScorer":
         self._q_emb = self._encode([f.question for f in faqs])
@@ -230,7 +228,7 @@ class EmbeddingScorer:
         return self
 
     def _encode(self, texts: list[str]) -> np.ndarray:
-        return self._model.encode(texts, normalize_embeddings=True, show_progress_bar=False)
+        return self._model.encode(texts)
 
     def score(self, query: str) -> np.ndarray:
         q = self._encode([query])[0]

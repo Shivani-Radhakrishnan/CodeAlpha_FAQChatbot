@@ -1,8 +1,8 @@
-"""Embedding-method checks; skipped unless sentence-transformers is installed."""
+"""Embedding-method checks; skipped unless the optional ONNX embedding dependencies are installed."""
 
 import pytest
 
-pytest.importorskip("sentence_transformers")
+pytest.importorskip("onnxruntime")
 
 from botbuddy.matcher import FAQMatcher  # noqa: E402
 
