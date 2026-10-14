@@ -1,12 +1,14 @@
-# 🤖 BotBuddy – FAQ Chatbot
+# BotBuddy: FAQ Chatbot with Grounded, Cited Answers
 
-[![tests](https://github.com/Shivani-Radhakrishnan/CodeAlpha_FAQChatbot/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Shivani-Radhakrishnan/CodeAlpha_FAQChatbot/actions/workflows/tests.yml)
+[![tests](https://github.com/Shivani-Radhakrishnan/botbuddy-rag-faq/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/Shivani-Radhakrishnan/botbuddy-rag-faq/actions/workflows/tests.yml)
 
-BotBuddy is a customer-support FAQ chatbot built with **Python**, **Streamlit**, **scikit-learn** and **sentence embeddings**. It matches a user's question to the closest entry in a 68-question knowledge base, shows how confident it is, and when it isn't sure it asks *"Did you mean…?"* instead of guessing. Built for the CodeAlpha internship.
+BotBuddy is a customer-support chatbot that **answers from a store's policy documents with citations**, using a local language model (Qwen2.5-1.5B through llama.cpp). It retrieves the relevant sections, writes a short answer, checks every sentence against the section it comes from, cites that section, and declines when the documents don't cover the question. On 98 held-out questions it handles **82.7%** correctly, against 44.9% for a plain FAQ matcher and 14.3% for the same model without the documents.
 
-It can also **answer from the store's policy documents** with a local language model (Qwen2.5-1.5B through llama.cpp): it retrieves the relevant sections, writes a short answer, checks every sentence against the section it comes from, cites it, and declines when the documents don't cover the question. On 98 held-out questions it handles **82.7%** correctly, against 44.9% for the FAQ matcher and 14.3% for the same model without the documents.
+Underneath is a fast FAQ matcher built with **Python**, **Streamlit**, **scikit-learn** and **sentence embeddings**. It matches a question to the closest entry in a 68-question knowledge base, shows how confident it is, and when it isn't sure it asks *"Did you mean…?"* instead of guessing.
 
 The matching and answering logic is a small, typed, tested Python package, measured on held-out questions so that changes can be compared with numbers.
+
+*Background: started as a project for the CodeAlpha internship and extended since.*
 
 ![BotBuddy Screenshot](assets/screenshot.png)
 
@@ -126,8 +128,8 @@ Small talk (*"hi"*, *"human"*) isn't in the policies, so it still goes to the FA
 ## Quick start
 
 ```bash
-git clone https://github.com/Shivani-Radhakrishnan/CodeAlpha_FAQChatbot.git
-cd CodeAlpha_FAQChatbot
+git clone https://github.com/Shivani-Radhakrishnan/botbuddy-rag-faq.git
+cd botbuddy-rag-faq
 python -m venv .venv && source .venv/bin/activate
 
 pip install -r requirements.txt              # lightweight (hybrid matcher)
